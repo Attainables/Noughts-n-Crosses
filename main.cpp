@@ -26,7 +26,7 @@ int main()
 {
     char playAgain = 'y';
 
-    // Add the start of your loop here (before creating the board)
+
     do {
         Board board = createBoard();
 
@@ -57,7 +57,7 @@ int main()
             std::cout << "It's a draw!\n";
         }
 
-        // Prompt the user to play again here
+    
         std::cout << "Play again (y/n)? ";
         std::cin >> playAgain;
 
