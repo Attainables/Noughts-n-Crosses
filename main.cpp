@@ -38,9 +38,6 @@ int main()
     do {
         Board board = createBoard();
 
-        std::cout << "Noughts and Crosses\n";
-        std::cout << "You are X. The computer is O.\n";
-
         while (!isGameOver(board)) {
             printBoard(board);
             makeMove(board, readHumanMove(board), HumanMarker);
@@ -51,40 +48,29 @@ int main()
 
             const int computerMove = chooseComputerMove(board);
             makeMove(board, computerMove, ComputerMarker);
-            std::cout << "Computer chose square " << computerMove << ".\n";
+            cout << "Computer chose square " << computerMove << ".\n";
         }
 
         printBoard(board);
 
         const char result = winner(board);
         if (result == HumanMarker) {
-            std::cout << "You win!\n";
+            cout << "You win!\n";
         } else if (result == ComputerMarker) {
-            std::cout << "Computer wins!\n";
+            cout << "Computer wins!\n";
         } else {
-            std::cout << "It's a draw!\n";
+            cout << "It's a draw!\n";
         }
 
-        const int computerMove = chooseComputerMove(board);
-        makeMove(board, computerMove, ComputerMarker);
-        cout << "Computer chose square " << computerMove << ".\n";
-    }
+        cout << "Play again (y/n)? ";
+        cin >> playAgain;
 
     } while (playAgain == 'y' || playAgain == 'Y');
 
-    const char result = winner(board);
-    if (result == HumanMarker) {
-        cout << "You win!\n";
-    } else if (result == ComputerMarker) {
-        cout << "Computer wins!\n";
-    } else {
-        cout << "It's a draw!\n";
-    }
-
+    cout << "Good game.\n";
     return 0;
 }
 #endif
-
 Board createBoard()
 {
     return {EmptyCell, EmptyCell, EmptyCell,
